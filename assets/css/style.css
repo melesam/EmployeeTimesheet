@@ -18,13 +18,5 @@ tr
 	border-bottom-style: solid;
 	border-bottom-width: 3px;
 	border-bottom-color: grey;
-	width: 100px;
-}
-
-.formlines
-{
-	border-bottom-style: solid;
-	border-bottom-width: 3px;
-	border-bottom-color: grey;
-	width: 100px;
+	width: 100%;
 }
