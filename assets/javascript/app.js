@@ -41,6 +41,10 @@ function saveEmployee()
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> e7f264c2f691e5ac01a3967dd8885b479afe6152
 function loadEmployees()
 {
 	database.ref(employeesRef).on("child_added", function(snapshot)		// child_added is used when retrieving a list of items from a database.  Value is pulling the entire contents but child will be triggered once for each child then each subsequent child.
@@ -49,12 +53,16 @@ function loadEmployees()
 	}, 
 	function(err)
 	{
+<<<<<<< HEAD
 =======
 function loadEmployees(){
 	database.ref(employeesRef).on("child_added", function(snapshot){
 		$("#tablebody").html(snapshot.val());
 	}, function(err){
 >>>>>>> 73ee47a369bf1d19295561976c76c21567ba2fb8
+=======
+
+>>>>>>> e7f264c2f691e5ac01a3967dd8885b479afe6152
 		console.log("Error occured" + err);
 	});
 }
