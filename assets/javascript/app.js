@@ -14,14 +14,40 @@ var database = firebase.database();
 
 var employeesRef = "/employees";
 
-$(document).ready(function(){
-	
-	$("#submit").on("click", function(){
-		database.ref(employeesRef).set({
-			name: "Ferenc",
-			role: "Awesomeness",
-			startDate: "102517",
-			monthlyRate: "0.00"
+function saveEmployee(){
+
+	$("#submit").on("click", function(e){
+		e.preventDefault();
+		var name = $("#employeeNameId").val().trim();
+		var role = $("#roleId").val().trim();
+		var startDate = $("#startDateId").val().trim();
+		var monthlyRate = $("#monthlyRate").val().trim();
+		database.ref(employeesRef).push({
+			name: name,
+			role: role,
+			startDate: startDate,
+			monthlyRate: monthlyRate
 		});
+
+		$("#employeeNameId").val("");
+		$("#roleId").val("");
+		$("#startDateId").val("");
+		$("#monthlyRate").val("");
 	});
+}
+
+
+function loadEmployees(){
+	database.ref(employeesRef).on("child_added", function(snapshot){
+		console.log(snapshot.val());
+	}, function(err){
+		console.log("Error occured" + err);
+	});
+}
+
+$(document).ready(function(){
+
+	saveEmployee();
+	loadEmployees();
+	
 });
