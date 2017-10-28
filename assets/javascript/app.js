@@ -13,5 +13,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 $(document).ready(function(){
-	alert(database);
+	
+	var ref = "/employee";
+	
 });
