@@ -12,3 +12,19 @@ margin: 5%;
 	margin-bottom: 50px;
 	padding-top: 30px;
 }
+
+tr
+{
+	border-bottom-style: solid;
+	border-bottom-width: 3px;
+	border-bottom-color: grey;
+	width: 100px;
+}
+
+.formlines
+{
+	border-bottom-style: solid;
+	border-bottom-width: 3px;
+	border-bottom-color: grey;
+	width: 100px;
+}
