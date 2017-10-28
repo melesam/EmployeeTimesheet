@@ -1,11 +1,14 @@
 body
 {
-margin: 10%;
+margin: 5%;
 }
 
-.container
+.headerbox
 {
 	text-align: center;
-	font: white;
+	color: white;
 	background-color: black;
+	height: 200px;
+	margin-bottom: 50px;
+	padding-top: 30px;
 }
