@@ -39,7 +39,7 @@ function saveEmployee(){
 
 function loadEmployees(){
 	database.ref(employeesRef).on("child_added", function(snapshot){
-		console.log(snapshot.val());
+		$("#tablebody").html(snapshot.val());
 	}, function(err){
 		console.log("Error occured" + err);
 	});
