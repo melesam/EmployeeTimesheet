@@ -11,41 +11,49 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
-
 var employeesRef = "/employees";
 
-function saveEmployee(){
+function saveEmployee()
+{
 
-	$("#submit").on("click", function(e){
-		e.preventDefault();
-		var name = $("#employeeNameId").val().trim();
+	$("#submit").on("click", function(e)
+	{
+		e.preventDefault();										// stops the website from reloading and keeps forms active
+		var name = $("#employeeNameId").val().trim();			// setting the user input in field #employeeNameId to var name and trimming extra spaces out, val will return the value in that id
 		var role = $("#roleId").val().trim();
 		var startDate = $("#startDateId").val().trim();
 		var monthlyRate = $("#monthlyRate").val().trim();
-		database.ref(employeesRef).push({
+		database.ref(employeesRef).push(						// pushing updated information to variables with key value pairs by reference
+		{
 			name: name,
 			role: role,
 			startDate: startDate,
 			monthlyRate: monthlyRate
 		});
 
-		$("#employeeNameId").val("");
-		$("#roleId").val("");
-		$("#startDateId").val("");
-		$("#monthlyRate").val("");
+		$("#employeeNameId").val("");							// clearing the field 
+		$("#roleId").val("");									// clearing the field 
+		$("#startDateId").val("");								// clearing the field 
+		$("#monthlyRate").val("");								// clearing the field 
 	});
+
 }
 
 
-function loadEmployees(){
-	database.ref(employeesRef).on("child_added", function(snapshot){
-		console.log(snapshot.val());
-	}, function(err){
+function loadEmployees()
+{
+	database.ref(employeesRef).on("child_added", function(snapshot)		// child_added is used when retrieving a list of items from a database.  Value is pulling the entire contents but child will be triggered once for each child then each subsequent child.
+	{																	// we are reading data from a database via snapshot.  This is passed with event callback like on or once
+		console.log(snapshot.val());									// val for snapshot will extract all the contents as an object from the snapshot
+	}, 
+	function(err)
+	{
 		console.log("Error occured" + err);
 	});
 }
 
-$(document).ready(function(){
+$(document).ready(function()
+{
 
 	saveEmployee();
 	loadEmployees();

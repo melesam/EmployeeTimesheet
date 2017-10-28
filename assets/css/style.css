@@ -13,11 +13,10 @@ margin: 5%;
 	padding-top: 30px;
 }
 
-#tablebody
+tr
 {
 	border-bottom-style: solid;
 	border-bottom-width: 3px;
 	border-bottom-color: grey;
 	width: 100%;
-
 }
