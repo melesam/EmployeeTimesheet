@@ -12,8 +12,16 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
+var employeesRef = "/employees";
+
 $(document).ready(function(){
 	
-	var ref = "/employee";
-	
+	$("#submit").on("click", function(){
+		database.ref(employeesRef).set({
+			name: "Ferenc",
+			role: "Awesomeness",
+			startDate: "102517",
+			monthlyRate: "0.00"
+		});
+	});
 });
