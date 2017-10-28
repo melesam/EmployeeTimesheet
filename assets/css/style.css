@@ -13,18 +13,11 @@ margin: 5%;
 	padding-top: 30px;
 }
 
-tr
+#tablebody
 {
 	border-bottom-style: solid;
 	border-bottom-width: 3px;
 	border-bottom-color: grey;
-	width: 100px;
-}
+	width: 100%;
 
-.formlines
-{
-	border-bottom-style: solid;
-	border-bottom-width: 3px;
-	border-bottom-color: grey;
-	width: 100px;
 }
