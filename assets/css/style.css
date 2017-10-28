@@ -1,4 +1,11 @@
-.jumbotron jumbotron-fluid
+body
 {
-	width: 90%;
+margin: 10%;
+}
+
+.container
+{
+	text-align: center;
+	font: white;
+	background-color: black;
 }
