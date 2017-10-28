@@ -44,8 +44,20 @@ function saveEmployee()
 function loadEmployees()
 {
 	database.ref(employeesRef).on("child_added", function(snapshot)		// child_added is used when retrieving a list of items from a database.  Value is pulling the entire contents but child will be triggered once for each child then each subsequent child.
-	{																	// we are reading data from a database via snapshot.  This is passed with event callback like on or once
-		console.log(snapshot.val());									// val for snapshot will extract all the contents as an object from the snapshot
+	{							
+		var tableRow = $("<tr>");
+
+		var randomNumber = Math.floor(Math.random() * 255);
+
+		tableRow.html(
+			"<th> </th>"+
+			"<td>"+ snapshot.val().name +"</td>"+
+			"<td>"+ snapshot.val().role +"</td>"+
+			"<td>"+ snapshot.val().startDate +"</td>"+
+			"<td>"+ randomNumber +"</td>"+
+			"<td>"+ snapshot.val().monthlyRate +"</td>"+
+			"<td>"+ parseInt(snapshot.val().monthlyRate) * randomNumber +"</td>");										// we are reading data from a database via snapshot.  This is passed with event callback like on or once
+		$("#tablebody").prepend(tableRow);									// val for snapshot will extract all the contents as an object from the snapshot
 	}, 
 	function(err)
 	{
@@ -56,7 +68,7 @@ function loadEmployees()
 
 $(document).ready(function()
 {
-
+	$("#tablebody").empty();
 	saveEmployee();
 	loadEmployees();
 	
